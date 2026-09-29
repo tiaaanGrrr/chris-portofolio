@@ -11,8 +11,8 @@ const skillGroups = [
     number: '01',
     title: 'AI & automation',
     description:
-      'Using Python as my core language to explore intelligent systems, practical AI, and useful automation.',
-    skills: ['Python'],
+      'Using Python with OpenCV and NumPy to explore intelligent systems, practical computer vision, and useful automation.',
+    skills: ['Python', 'OpenCV', 'NumPy'],
     tone: 'lime',
   },
   {
@@ -350,8 +350,9 @@ function App() {
               <h2>Real work, shown honestly.</h2>
             </div>
             <p>
-              One frontend project out in the open and one Android idea at day zero.
-              No inflated claims—just what exists and what I&apos;m building next.
+              A shipped frontend, an academic computer-vision prototype, and an
+              Android idea at day zero. Clear ownership, honest stages, and no
+              inflated claims.
             </p>
           </div>
 
@@ -453,6 +454,85 @@ function App() {
                 <span className="project-link project-link--disabled">
                   Repository coming soon
                 </span>
+              </div>
+            </article>
+
+            <article className="project-card project-card--traffic">
+              <div className="project-card__top">
+                <span>03 / CV</span>
+                <span className="project-status">
+                  <i /> Academic prototype
+                </span>
+              </div>
+
+              <div className="project-visual project-visual--traffic" aria-hidden="true">
+                <div className="traffic-monitor">
+                  <div className="traffic-monitor__bar">
+                    <span>CAM_01 / DYNAMIC ROI</span>
+                    <span className="traffic-live"><i /> LIVE</span>
+                  </div>
+                  <div className="traffic-road">
+                    <span className="traffic-lane traffic-lane--one" />
+                    <span className="traffic-lane traffic-lane--two" />
+                    <span className="traffic-roi">
+                      <small>FRAME-RELATIVE ROI</small>
+                    </span>
+                    <span className="vehicle-detection vehicle-detection--one">
+                      <small>ID 03</small>
+                    </span>
+                    <span className="vehicle-detection vehicle-detection--two">
+                      <small>ID 04</small>
+                    </span>
+                    <span className="vehicle-detection vehicle-detection--three">
+                      <small>ID 05</small>
+                    </span>
+                  </div>
+                  <div className="traffic-metrics">
+                    <div>
+                      <span>Detected</span>
+                      <strong>06</strong>
+                    </div>
+                    <div>
+                      <span>Green estimate</span>
+                      <strong>30s</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="project-card__content">
+                <p className="project-meta">Academic team project · Computer vision</p>
+                <h3>Vehicle Detection for Traffic Light Optimization</h3>
+                <p>
+                  A CPU-based prototype that processes fixed-camera traffic video
+                  through frame-relative ROI masking, MOG2 background subtraction,
+                  morphological filtering, and centroid tracking, then explores a
+                  bounded green-time calculation from cumulative detections.
+                </p>
+                <div className="project-note project-note--light">
+                  <span>My contribution</span>
+                  <p>
+                    System architecture, Layer 1 ROI masking, Layer 2 MOG2
+                    implementation, and presentation design.
+                  </p>
+                </div>
+                <ul
+                  className="project-tags"
+                  aria-label="Traffic vision project technologies"
+                >
+                  <li>Python</li>
+                  <li>OpenCV</li>
+                  <li>NumPy</li>
+                  <li>MOG2</li>
+                </ul>
+                <a
+                  className="project-link"
+                  href="https://github.com/Jozioo/Vehicle-Detecion---MOG"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View team repository <ArrowIcon />
+                </a>
               </div>
             </article>
           </div>
