@@ -811,6 +811,30 @@ svg {
   color: var(--white);
 }
 
+.project-card--traffic {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-rows: auto 1fr;
+}
+
+.project-card--traffic .project-card__top {
+  grid-column: 1 / -1;
+}
+
+.project-card--traffic .project-visual {
+  grid-row: 2;
+  min-height: 440px;
+  height: auto;
+  margin: 23px 0 27px 27px;
+}
+
+.project-card--traffic .project-card__content {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 36px;
+}
+
 .project-card__top {
   display: flex;
   align-items: center;
@@ -1054,6 +1078,239 @@ svg {
   left: 20px;
 }
 
+.project-visual--traffic {
+  display: grid;
+  padding: 20px;
+  place-items: center;
+  background:
+    linear-gradient(rgba(22, 26, 23, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 26, 23, 0.05) 1px, transparent 1px),
+    var(--lime);
+  background-size: 22px 22px;
+}
+
+.traffic-monitor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+  background: #151a16;
+  box-shadow: 0 22px 38px rgba(22, 26, 23, 0.25);
+  overflow: hidden;
+}
+
+.traffic-monitor__bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'DM Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+
+.traffic-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--lime);
+}
+
+.traffic-live i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 4px rgba(216, 255, 101, 0.1);
+  animation: status-pulse 1.8s ease-in-out infinite;
+}
+
+.traffic-road {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  bottom: 70px;
+  left: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #697269 0 11%,
+      #3a423d 11% 12%,
+      #303632 12% 88%,
+      #3a423d 88% 89%,
+      #697269 89%
+    );
+  overflow: hidden;
+}
+
+.traffic-road::before,
+.traffic-road::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.48) 0 16px,
+    transparent 16px 34px
+  );
+  content: '';
+}
+
+.traffic-road::before {
+  left: 37%;
+}
+
+.traffic-road::after {
+  right: 37%;
+}
+
+.traffic-lane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.traffic-lane--one {
+  left: 24%;
+}
+
+.traffic-lane--two {
+  right: 24%;
+}
+
+.traffic-roi {
+  position: absolute;
+  top: 13%;
+  right: 12%;
+  bottom: 10%;
+  left: 12%;
+  z-index: 2;
+  border: 1px solid #8db9ff;
+  box-shadow: inset 0 0 22px rgba(82, 143, 255, 0.06);
+  overflow: hidden;
+}
+
+.traffic-roi::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8db9ff, transparent);
+  content: '';
+  animation: traffic-scan 3.2s ease-in-out infinite;
+}
+
+.traffic-roi small {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  color: #a9caff;
+  font-family: 'DM Mono', monospace;
+  font-size: 6px;
+  letter-spacing: 0.08em;
+}
+
+.vehicle-detection {
+  position: absolute;
+  z-index: 3;
+  width: 44px;
+  height: 61px;
+  border: 1px solid var(--lime);
+  box-shadow: 0 0 16px rgba(216, 255, 101, 0.08);
+}
+
+.vehicle-detection::before {
+  position: absolute;
+  inset: 7px 8px;
+  border-radius: 8px 8px 5px 5px;
+  background:
+    linear-gradient(90deg, transparent 15%, rgba(255, 255, 255, 0.24) 16% 22%, transparent 23% 77%, rgba(255, 255, 255, 0.24) 78% 84%, transparent 85%),
+    #121613;
+  box-shadow: inset 0 -13px 0 #242b26;
+  content: '';
+}
+
+.vehicle-detection small {
+  position: absolute;
+  top: -13px;
+  left: -1px;
+  padding: 2px 4px;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: 'DM Mono', monospace;
+  font-size: 6px;
+  white-space: nowrap;
+}
+
+.vehicle-detection--one {
+  top: 30%;
+  left: 22%;
+}
+
+.vehicle-detection--two {
+  top: 53%;
+  left: 47%;
+  width: 48px;
+  height: 66px;
+}
+
+.vehicle-detection--three {
+  top: 23%;
+  right: 19%;
+  width: 40px;
+  height: 55px;
+}
+
+.traffic-metrics {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  height: 70px;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.traffic-metrics div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.traffic-metrics div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.traffic-metrics span {
+  color: rgba(255, 255, 255, 0.38);
+  font-family: 'DM Mono', monospace;
+  font-size: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.traffic-metrics strong {
+  margin-top: 4px;
+  color: var(--lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .project-card__content {
   display: flex;
   flex: 1;
@@ -1116,6 +1373,19 @@ svg {
   color: rgba(255, 255, 255, 0.54);
   font-size: 10px;
   line-height: 1.65;
+}
+
+.project-note--light {
+  border-color: rgba(39, 92, 59, 0.13);
+  background: #eff3e9;
+}
+
+.project-note--light span {
+  color: var(--green);
+}
+
+.project-note--light p {
+  color: var(--ink-soft);
 }
 
 .project-tags {
@@ -1369,6 +1639,18 @@ svg {
   }
 }
 
+@keyframes traffic-scan {
+  0%,
+  100% {
+    top: 8%;
+    opacity: 0.35;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -1449,6 +1731,28 @@ svg {
 
   .project-visual {
     height: 340px;
+  }
+
+  .project-card--traffic {
+    display: flex;
+    grid-column: auto;
+  }
+
+  .project-card--traffic .project-card__top,
+  .project-card--traffic .project-card__content {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .project-card--traffic .project-visual {
+    grid-row: auto;
+    min-height: 0;
+    height: 340px;
+    margin: 23px 27px 0;
+  }
+
+  .project-card--traffic .project-card__content {
+    padding: 30px 27px 29px;
   }
 
   .contact-panel {
@@ -1675,6 +1979,15 @@ svg {
   }
 
   .project-card__content {
+    padding: 25px 20px 24px;
+  }
+
+  .project-card--traffic .project-visual {
+    height: 270px;
+    margin: 20px 20px 0;
+  }
+
+  .project-card--traffic .project-card__content {
     padding: 25px 20px 24px;
   }
 
